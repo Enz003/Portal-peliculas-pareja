@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Watchlist Portal</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div id="app" class="app-shell">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="logo">WL</div>
+        <div class="brand-text">
+          <div class="brand-title">Watchlist</div>
+          <div class="brand-subtitle">Shared portal</div>
+        </div>
+      </div>
+
+      <div class="profile-card">
+        <div class="profile-row">
+          <div class="avatar" id="avatar">E</div>
+          <div class="profile-meta">
+            <div class="profile-name" id="profileName">Enzo</div>
+            <div class="profile-role">Cuenta personal</div>
+          </div>
+        </div>
+
+        <div class="kpis">
+          <div class="kpi">
+            <div class="kpi-label">Favoritas</div>
+            <div class="kpi-value" id="kpiFav">0</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-label">Vistas</div>
+            <div class="kpi-value" id="kpiSeen">0%</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-label">Tier S</div>
+            <div class="kpi-value" id="kpiTierS">0</div>
+          </div>
+        </div>
+
+        <div class="quick-actions">
+          <button class="btn btn-ghost" id="btnSwitchUser" title="Modo demo">
+            Cambiar usuario (demo)
+          </button>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a class="nav-item" href="#/dashboard" data-route="dashboard">Dashboard</a>
+        <a class="nav-item" href="#/shared" data-route="shared">Lista compartida</a>
+        <a class="nav-item" href="#/movie/new" data-route="new">Agregar película</a>
+        <div class="nav-section">Personal</div>
+        <a class="nav-item" href="#/me/tier" data-route="me-tier">Mi tierlist</a>
+        <a class="nav-item" href="#/me/favorites" data-route="me-favs">Mis favoritas</a>
+        <div class="nav-section">Pareja</div>
+        <a class="nav-item" href="#/partner/tier" data-route="p-tier">Tier de mi pareja</a>
+        <a class="nav-item" href="#/partner/favorites" data-route="p-favs">Favoritas de mi pareja</a>
+        <div class="nav-section">Sistema</div>
+        <a class="nav-item" href="#/settings" data-route="settings">Ajustes</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="muted">v1.0 • Premium UI</div>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <section class="main">
+      <header class="topbar">
+        <button class="btn btn-ghost mobile-menu-btn" id="openSidebar">
+        ☰
+        </button>
+
+        <div class="search">
+          <input id="globalSearch" placeholder="Buscar en tu catálogo..." />
+        </div>
+        <div class="topbar-actions">
+          <button class="btn btn-primary" id="openAddModal">+ Agregar</button>
+        </div>
+      </header>
+
+      <main class="content">
+        <div id="view"></div>
+      </main>
+    </section>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal-backdrop hidden" id="modalBackdrop">
+    <div class="modal">
+      <div class="modal-header">
+        <div class="modal-title" id="modalTitle">Agregar película</div>
+        <button class="btn btn-ghost" id="closeModal">Cerrar</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+      <div class="modal-footer" id="modalFooter"></div>
+    </div>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
