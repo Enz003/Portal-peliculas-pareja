@@ -34,9 +34,43 @@ export function AppShell() {
   const avatar = useMemo(() => me?.initial ?? 'U', [me]);
   const profileName = useMemo(() => me?.name ?? 'Usuario', [me]);
 
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (touchStart === null) return;
+    const currentTouch = e.targetTouches[0].clientX;
+    const diff = touchStart - currentTouch;
+
+    // If swipe left is more than 50px, close sidebar
+    if (diff > 50) {
+      setSidebarOpen(false);
+      setTouchStart(null);
+    }
+  };
+
+  const handleTouchEnd = () => {
+    setTouchStart(null);
+  };
+
   return (
     <div id="app" className="app-shell">
-      <aside className={`sidebar ${sidebarOpen ? 'open' : ''}`} id="sidebar">
+      {sidebarOpen && (
+        <div
+          className="sidebar-backdrop"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
+      <aside
+        className={`sidebar ${sidebarOpen ? 'open' : ''}`}
+        id="sidebar"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         <div className="brand">
           <div className="logo">WL</div>
           <div className="brand-text">

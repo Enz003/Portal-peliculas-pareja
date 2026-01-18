@@ -88,15 +88,15 @@ function MovieRow({
         <div className="meta">{sub}</div>
       </div>
 
-      <div>
+      <div data-label="Vista">
         {pu.seen ? <span className="badge ok">Vista</span> : <span className="badge muted">Pendiente</span>}
       </div>
 
-      <div>
+      <div data-label="Fav">
         {pu.favorite ? <span className="badge warn">Favorita</span> : <span className="badge muted">—</span>}
       </div>
 
-      <div>
+      <div data-label="Tier">
         {pu.tier ? <span className={`tier ${pu.tier}`}>{pu.tier}</span> : <span className="tier">—</span>}
       </div>
 
