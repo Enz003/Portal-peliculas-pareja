@@ -176,7 +176,7 @@ export function AppShell() {
         open={addOpen}
         title="Agregar película"
         onClose={() => setAddOpen(false)}
-        footer={<div className="badge muted">Se guarda usando el módulo API centralizado.</div>}
+        footer={<div className="badge muted">La pelicula se guardara en tus registros :).</div>}
       >
         <AddMovieForm
           onCancel={() => setAddOpen(false)}
